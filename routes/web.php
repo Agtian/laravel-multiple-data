@@ -20,3 +20,6 @@ Route::get('/', function () {
 
 Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 Route::post('/customer', [CustomerController::class, 'store'])->name('store.customer');
+
+Route::get('/customer/detail', [CustomerController::class, 'detail'])->name('detail.customer');
+Route::get('/customer/detail/{id}', [CustomerController::class, 'detailCustomer']);

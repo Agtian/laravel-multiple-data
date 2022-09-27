@@ -46,4 +46,18 @@ class CustomerController extends Controller
 
         return redirect()->back()->with('status', 'Data berhasil di input.');
     }
+
+    public function detail()
+    {
+        $customers = Customer::all();
+
+        return view('frontend.customer.detail', compact('customers'));
+    }
+
+    public function detailCustomer($id)
+    {
+        $customers = Customer::with('detail')->where('id', $id)->first();
+
+        return view('frontend.customer.detail_customer', compact('customers'));
+    }
 }
